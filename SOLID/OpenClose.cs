@@ -96,6 +96,43 @@ namespace Design_Patterns.SOLID
             }
         }
 
+        public class SizeSpecification : ISpecification<Product>
+        {
+            private Size size;
+            public SizeSpecification(Size size)
+            {
+                this.size = size;
+            }
+
+            public bool IsSatisfied(Product product)
+            {
+                return product.Size == size;
+            }
+        }
+
+        public class AndSpecification<T> : ISpecification<T>
+        {
+            private ISpecification<T> first, second;
+
+            public AndSpecification(ISpecification<T> first, ISpecification<T> second)
+            {
+                if (first == null)
+                    throw new ArgumentNullException(paramName: nameof(first));
+                if (second == null)
+                    throw new ArgumentNullException(paramName: nameof(second));
+
+                this.first = first;
+                this.second = second;
+            }
+
+            public bool IsSatisfied(T item)
+            {
+                return first.IsSatisfied(item) && second.IsSatisfied(item);
+            }
+
+        }
+
+
         /// <summary>
         /// new way, implements open close design pattern
         /// </summary>
@@ -134,6 +171,15 @@ namespace Design_Patterns.SOLID
             foreach (var p in bf.Filter(products, cs))
             {
                 Console.WriteLine($"Green products(new) {p.Name}");
+            }
+
+            foreach (var p in bf.Filter(products,
+                new AndSpecification<Product>(
+                new ColorSpecification(Color.Red),
+                new SizeSpecification(Size.Large)
+                )))
+            {
+                Console.WriteLine($"Color red and large products(new) {p.Name}");
             }
         }
     }
