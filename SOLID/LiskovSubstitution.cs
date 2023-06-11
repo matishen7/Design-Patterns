@@ -49,12 +49,12 @@ namespace Design_Patterns.SOLID
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var rc = new Rectangle(3,4);
-            Console.WriteLine(rc.CalculateArea());
-            var circle = new Circle(9);
-            Console.WriteLine(circle.CalculateArea());
-        }
+        //public static void Main(string[] args)
+        //{
+        //    var rc = new Rectangle(3,4);
+        //    Console.WriteLine(rc.CalculateArea());
+        //    var circle = new Circle(9);
+        //    Console.WriteLine(circle.CalculateArea());
+        //}
     }
 }
