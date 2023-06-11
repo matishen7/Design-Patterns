@@ -61,6 +61,53 @@ namespace Design_Patterns.SOLID
                         yield return product;
                 }
             }
+
+            public IEnumerable<Product> FilterBySizeAndColor(IEnumerable<Product> products, Size size, Color color)
+            {
+                foreach (var product in products)
+                {
+                    if (product.Color == color && product.Size == size)
+                        yield return product;
+                }
+            }
+        }
+
+        public interface ISpecification<T>
+        {
+            public bool IsSatisfied(T t);
+        }
+
+        public interface IFilter<T>
+        {
+            IEnumerable<T> Filter(IEnumerable<T> items, ISpecification<T> specification);
+        }
+
+        public class ColorSpecification : ISpecification<Product>
+        {
+            private Color color;
+            public ColorSpecification(Color color)
+            {
+                this.color = color;
+            }
+
+            public bool IsSatisfied(Product product)
+            {
+                return product.Color == color;
+            }
+        }
+
+        /// <summary>
+        /// new way, implements open close design pattern
+        /// </summary>
+        public class BetterFilter : IFilter<Product>
+        {
+            public IEnumerable<Product> Filter(IEnumerable<Product> items, ISpecification<Product> specification)
+            {
+                foreach (var i in items)
+                {
+                    if (specification.IsSatisfied(i)) yield return i;
+                }
+            }
         }
 
         public static void Main(string[] args)
@@ -74,7 +121,19 @@ namespace Design_Patterns.SOLID
 
             foreach (var p in pf.FilterBySize(products, Size.Small))
             {
-                Console.WriteLine($"Green products {p.Name}");
+                Console.WriteLine($"Green products(old) {p.Name}");
+            }
+
+            foreach (var p in pf.FilterByColor(products, Color.Red))
+            {
+                Console.WriteLine($"Red products(old) {p.Name}");
+            }
+
+            var bf = new BetterFilter();
+            var cs = new ColorSpecification(Color.Green);
+            foreach (var p in bf.Filter(products, cs))
+            {
+                Console.WriteLine($"Green products(new) {p.Name}");
             }
         }
     }
