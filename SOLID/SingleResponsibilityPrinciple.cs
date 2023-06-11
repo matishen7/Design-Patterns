@@ -57,24 +57,24 @@ namespace Design_Patterns.SOLID
         }
     }
 
-    public class SingleResponsibilityPrinciple
-    {
-        static void Main(string[] args)
-        {
-            var j = new Journal();
-            j.AddEntry("I cried today.");
-            j.AddEntry("I ate a bug.");
-            WriteLine(j);
+    //public class SingleResponsibilityPrinciple
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        var j = new Journal();
+    //        j.AddEntry("I cried today.");
+    //        j.AddEntry("I ate a bug.");
+    //        WriteLine(j);
 
-            var p = new Persistence();
-            var filename = @"c:\temp\journal.txt";
-            p.SaveToFile(j, filename);
-            var psi = new ProcessStartInfo(filename)
-            {
-                UseShellExecute = true
-            };
+    //        var p = new Persistence();
+    //        var filename = @"c:\temp\journal.txt";
+    //        p.SaveToFile(j, filename);
+    //        var psi = new ProcessStartInfo(filename)
+    //        {
+    //            UseShellExecute = true
+    //        };
 
-            Process.Start(psi);
-        }
-    }
+    //        Process.Start(psi);
+    //    }
+    //}
 }
