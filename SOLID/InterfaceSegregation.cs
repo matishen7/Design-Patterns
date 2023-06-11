@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns.SOLID
 {
+    
     internal class InterfaceSegregation
     {
         public interface IMachine
