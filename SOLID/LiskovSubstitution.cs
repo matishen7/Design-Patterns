@@ -10,7 +10,11 @@ namespace Design_Patterns.SOLID
     {
         internal abstract class Shape
         {
-            public abstract double CalculateArea();
+           // public abstract double CalculateArea();
+           public virtual double CalculateArea()
+            {
+                return 0.0;
+            }
 
             public Shape() { }
         }
