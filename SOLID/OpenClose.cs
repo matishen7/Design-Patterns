@@ -147,41 +147,41 @@ namespace Design_Patterns.SOLID
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var apple = new Product("apple", Color.Green, Size.Small);
-            var tree = new Product("tree", Color.Green, Size.Small);
-            var car = new Product("car", Color.Red, Size.Large);
+        //public static void Main(string[] args)
+        //{
+        //    var apple = new Product("apple", Color.Green, Size.Small);
+        //    var tree = new Product("tree", Color.Green, Size.Small);
+        //    var car = new Product("car", Color.Red, Size.Large);
 
-            var pf = new ProductFilter();
-            Product[] products = new Product[] { apple, tree, car };
+        //    var pf = new ProductFilter();
+        //    Product[] products = new Product[] { apple, tree, car };
 
-            foreach (var p in pf.FilterBySize(products, Size.Small))
-            {
-                Console.WriteLine($"Green products(old) {p.Name}");
-            }
+        //    foreach (var p in pf.FilterBySize(products, Size.Small))
+        //    {
+        //        Console.WriteLine($"Green products(old) {p.Name}");
+        //    }
 
-            foreach (var p in pf.FilterByColor(products, Color.Red))
-            {
-                Console.WriteLine($"Red products(old) {p.Name}");
-            }
+        //    foreach (var p in pf.FilterByColor(products, Color.Red))
+        //    {
+        //        Console.WriteLine($"Red products(old) {p.Name}");
+        //    }
 
-            var bf = new BetterFilter();
-            var cs = new ColorSpecification(Color.Green);
-            foreach (var p in bf.Filter(products, cs))
-            {
-                Console.WriteLine($"Green products(new) {p.Name}");
-            }
+        //    var bf = new BetterFilter();
+        //    var cs = new ColorSpecification(Color.Green);
+        //    foreach (var p in bf.Filter(products, cs))
+        //    {
+        //        Console.WriteLine($"Green products(new) {p.Name}");
+        //    }
 
-            foreach (var p in bf.Filter(products,
-                new AndSpecification<Product>(
-                new ColorSpecification(Color.Red),
-                new SizeSpecification(Size.Large)
-                )))
-            {
-                Console.WriteLine($"Color red and large products(new) {p.Name}");
-            }
-        }
+        //    foreach (var p in bf.Filter(products,
+        //        new AndSpecification<Product>(
+        //        new ColorSpecification(Color.Red),
+        //        new SizeSpecification(Size.Large)
+        //        )))
+        //    {
+        //        Console.WriteLine($"Color red and large products(new) {p.Name}");
+        //    }
+        //}
     }
 
 }
