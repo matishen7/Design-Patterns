@@ -108,12 +108,12 @@ namespace Design_Patterns.SOLID
         {
         }
 
-        public static void Main(string[] args)
-        {
-            var printer = new PhotoCopier();
-            var mfd = new MultiFunctionDevice(printer, printer);
-            mfd.Scan(new Document { });
-            mfd.Print(new Document { });
-        }
+        //public static void Main(string[] args)
+        //{
+        //    var printer = new PhotoCopier();
+        //    var mfd = new MultiFunctionDevice(printer, printer);
+        //    mfd.Scan(new Document { });
+        //    mfd.Print(new Document { });
+        //}
     }
 }
