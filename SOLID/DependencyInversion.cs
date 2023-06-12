@@ -51,6 +51,64 @@ namespace Design_Patterns.SOLID
             }
         }
 
+        // Business Logic Layer
+        public interface IOrderProcessor
+        {
+            void ProcessOrder(Order order);
+        }
+
+        public class OrderProcessor : IOrderProcessor
+        {
+            private readonly IOrderRepository _orderRepository;
+            private readonly IEmailService _emailService;
+
+            public OrderProcessor(IOrderRepository orderRepository, IEmailService emailService)
+            {
+                _orderRepository = orderRepository;
+                _emailService = emailService;
+            }
+
+            public void ProcessOrder(Order order)
+            {
+                _orderRepository.SaveOrder(order);
+                _emailService.SendEmail(order.CustomerEmail, "Order processed successfully");
+            }
+        }
+
+        // Data Access Layer
+        public interface IOrderRepository
+        {
+            void SaveOrder(Order order);
+        }
+
+        public class DatabaseOrderRepository : IOrderRepository
+        {
+            public void SaveOrder(Order order)
+            {
+                // Implementation for saving order to a database
+            }
+        }
+
+        // Service Layer
+        public interface IEmailService
+        {
+            void SendEmail(string recipient, string message);
+        }
+
+        public class SmtpEmailService : IEmailService
+        {
+            public void SendEmail(string recipient, string message)
+            {
+                // Implementation for sending an email using SMTP
+            }
+        }
+
+        public class Order
+        {
+            public string CustomerEmail { get; set;}
+        }
+
+
         public static void Main(string[] args)
         {
             var filename = @"c:\\temp\\journal.txt";
