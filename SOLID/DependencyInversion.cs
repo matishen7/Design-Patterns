@@ -106,23 +106,33 @@ namespace Design_Patterns.SOLID
         public class Order
         {
             public string CustomerEmail { get; set;}
-        }
-
-
-        public static void Main(string[] args)
-        {
-            var filename = @"c:\\temp\\journal.txt";
-            var lm = new LogManager(new ConsoleLogger());
-            var lm2 = new LogManager(new FileLogger(filename));
-            lm.Log("This is a log.");
-            lm2.Log("This is a log");
-
-            var psi = new ProcessStartInfo(filename)
+            public string CustomerName { get; set;}
+            public string CustomerPhone { get; set;}
+            public Order(string customerEmail, string customerName, string customerPhone)
             {
-                UseShellExecute = true
-            };
-
-            Process.Start(psi);
+                CustomerEmail = customerEmail;
+                CustomerName = customerName;
+                CustomerPhone = customerPhone;
+            }
         }
+
+
+        //public static void Main(string[] args)
+        //{
+        //    var filename = @"c:\\temp\\journal.txt";
+        //    var lm = new LogManager(new ConsoleLogger());
+        //    var lm2 = new LogManager(new FileLogger(filename));
+        //    lm.Log("This is a log.");
+        //    lm2.Log("This is a log");
+
+        //    var psi = new ProcessStartInfo(filename)
+        //    {
+        //        UseShellExecute = true
+        //    };
+
+        //    Process.Start(psi);
+
+        //    var order = new Order("test@gmail.com", "John", "Due");
+        //}
     }
 }
