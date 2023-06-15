@@ -50,6 +50,21 @@ namespace Design_Patterns.Builder
                 return this;
             }
         }
+
+        public class ProductBuilder : CatalogItemBuilder<Product>
+        {
+            public ProductBuilder SetPrice(double price)
+            {
+                catalofItem.Price = price;
+                return this;
+            }
+
+            public ProductBuilder SetAvailability(bool available)
+            {
+                catalofItem.Availability = available;
+                return this;
+            }
+        }
     }
 
     
