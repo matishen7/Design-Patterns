@@ -19,8 +19,8 @@ namespace Design_Patterns.Builder
 
         public class Category : CatalogItem
         {
-            public List<Category>? Categories { get; set; }
-            public List<Product>? Products { get; set; }
+            public List<Category>? Categories = new List<Category>();
+            public List<Product>? Products = new List<Product>();
 
             public void Display()
             {
