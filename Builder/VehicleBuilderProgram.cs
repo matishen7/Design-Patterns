@@ -76,11 +76,12 @@ namespace Design_Patterns.Builder
         public static void Main(string[] args)
         {
             var carBuilder = new CarBuilder();
+
             Car car = carBuilder
+                .SetNumOfDoors(4)
                 .SetModel("Toyota")
                 .SetYear(2000)
                 .SetMake("Camry")
-                .SetNumOfDoors(4)
                 .Build();
 
             car.Display();
