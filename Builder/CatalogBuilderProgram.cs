@@ -27,6 +27,14 @@ namespace Design_Patterns.Builder
         {
             public double Price { get; set; }
             public bool Availability { get; set; }
+
+            public void Display()
+            {
+                Console.WriteLine($"Price {Price}");
+                Console.WriteLine($"Name {Name}");
+                Console.WriteLine($"Description {Description}");
+                Console.WriteLine($"Availability {Availability}");
+            }
         }
 
         public class CatalogItemBuilder<T> where T : CatalogItem, new()
@@ -49,6 +57,11 @@ namespace Design_Patterns.Builder
                 catalofItem.Description = desc;
                 return this;
             }
+
+            public T Build()
+            {
+                return catalofItem;
+            }
         }
 
         public class ProductBuilder : CatalogItemBuilder<Product>
@@ -64,8 +77,23 @@ namespace Design_Patterns.Builder
                 catalofItem.Availability = available;
                 return this;
             }
+
+            
+        }
+
+        public static void Main(string[] args)
+        {
+            var productBuilder = new ProductBuilder();
+            Product product = productBuilder
+                .SetPrice(99.9)
+                .SetAvailability(true)
+                .SetName("Sports Shoes")
+                .SetDescription("Durable and comfortable athletic shoes for men.")
+                .Build();
+
+            product.Display();
         }
     }
 
-    
+
 }

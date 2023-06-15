@@ -73,18 +73,18 @@ namespace Design_Patterns.Builder
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var carBuilder = new CarBuilder();
+        //public static void Main(string[] args)
+        //{
+        //    var carBuilder = new CarBuilder();
 
-            Car car = carBuilder
-                .SetNumOfDoors(4)
-                .SetModel("Toyota")
-                .SetYear(2000)
-                .SetMake("Camry")
-                .Build();
+        //    Car car = carBuilder
+        //        .SetNumOfDoors(4)
+        //        .SetModel("Toyota")
+        //        .SetYear(2000)
+        //        .SetMake("Camry")
+        //        .Build();
 
-            car.Display();
-        }
+        //    car.Display();
+        //}
     }
 }
