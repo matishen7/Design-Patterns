@@ -21,6 +21,23 @@ namespace Design_Patterns.Builder
         {
             public List<Category>? Categories { get; set; }
             public List<Product>? Products { get; set; }
+
+            public void Display()
+            {
+                Console.WriteLine("Categories :");
+                foreach (var c in Categories)
+                {
+                    Console.WriteLine(c.Name);
+                    Console.WriteLine(c.Description);
+                }
+
+                Console.WriteLine("Products :");
+                foreach (var c in Products)
+                {
+                    Console.WriteLine(c.Name);
+                    Console.WriteLine(c.Description);
+                }
+            }
         }
 
         public class Product : CatalogItem
@@ -81,6 +98,21 @@ namespace Design_Patterns.Builder
             
         }
 
+        public class CategoryBuilder : CatalogItemBuilder<Category>
+        {
+            public CategoryBuilder AddCategory(Category category)
+            {
+                catalofItem.Categories.Add(category);
+                return this;
+            }
+
+            public CategoryBuilder AddProducts(Product product)
+            {
+                catalofItem.Products.Add(product);
+                return this;
+            }
+        }
+
         public static void Main(string[] args)
         {
             var productBuilder = new ProductBuilder();
@@ -91,7 +123,16 @@ namespace Design_Patterns.Builder
                 .SetDescription("Durable and comfortable athletic shoes for men.")
                 .Build();
 
+            var categoryBuilder = new CategoryBuilder();
+            var category = categoryBuilder
+                .AddProducts(product)
+                .SetDescription (product.Description)
+                .SetName (product.Name)
+                .Build();
+
+
             product.Display();
+            category.Display();
         }
     }
 
