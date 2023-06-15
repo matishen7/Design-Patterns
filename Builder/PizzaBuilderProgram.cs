@@ -8,18 +8,18 @@ namespace Design_Patterns.Builder
 {
     internal class PizzaBuilderProgram
     {
-        public static void Main(string[] args)
-        {
-            var pizzaBuilder = new PizzaBuilder();
-            Pizza pizza = pizzaBuilder
-                .SetSize(Size.Medium)
-                .SetCrustType("Thin Crust")
-                .SetSauceType("Tomato Sauce")
-                .AddToppings("Cheese")
-                .Build();
+        //public static void Main(string[] args)
+        //{
+        //    var pizzaBuilder = new PizzaBuilder();
+        //    Pizza pizza = pizzaBuilder
+        //        .SetSize(Size.Medium)
+        //        .SetCrustType("Thin Crust")
+        //        .SetSauceType("Tomato Sauce")
+        //        .AddToppings("Cheese")
+        //        .Build();
 
-            pizza.Display();
-        }
+        //    pizza.Display();
+        //}
     }
 
     class Pizza
