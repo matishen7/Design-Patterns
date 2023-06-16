@@ -35,7 +35,12 @@ namespace Design_Patterns.Builder
 
         public interface ISetContent
         {
-            public IBuild SetContent(string content);
+            public IAuthor SetContent(string content);
+        }
+
+        public interface IAuthor
+        {
+            public IBuild SetAuthor(string author);
         }
 
         public interface IBuild
@@ -51,7 +56,7 @@ namespace Design_Patterns.Builder
             }
         }
 
-        private class Impl : ISetTitle, ISetContent, IBuild
+        private class Impl : ISetTitle, ISetContent, IAuthor, IBuild
         {
             private Document d = new Document();
 
@@ -61,14 +66,21 @@ namespace Design_Patterns.Builder
                 return this;
             }
 
-            public IBuild SetContent(string content)
+            public IAuthor SetContent(string content)
             {
                 d.Content = content;
                 return this;
             }
 
+            public IBuild SetAuthor(string author)
+            {
+                d.Author = author;
+                return this;
+            }
+
             public Document Build()
             {
+                d.CreatedDate = DateTime.Now;
                 return d;
             }
         }
@@ -78,6 +90,7 @@ namespace Design_Patterns.Builder
             var d = DocumentBuilder.Create()
                 .SetTitle("D1")
                 .SetContent("asjkhh")
+                .SetAuthor("Murat")
                 .Build();
             
             Console.Write(d.ToString());
