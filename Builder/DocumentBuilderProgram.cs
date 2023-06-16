@@ -88,16 +88,16 @@ namespace Design_Patterns.Builder
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var d = DocumentBuilder.Create()
-                .SetTitle("D1")
-                .SetContent("asjkhh")
-                .SetAuthor("Murat")
-                .Build();
+        //public static void Main(string[] args)
+        //{
+        //    var d = DocumentBuilder.Create()
+        //        .SetTitle("D1")
+        //        .SetContent("asjkhh")
+        //        .SetAuthor("Murat")
+        //        .Build();
             
-            Console.Write(d.ToString());
-        }
+        //    Console.Write(d.ToString());
+        //}
     }
 
 

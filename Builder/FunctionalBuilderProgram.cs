@@ -3,11 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Design_Patterns.Builder.DocumentBuilderProgram;
 
 namespace Design_Patterns.Builder
 {
     internal class FunctionalBuilderProgram
     {
+        public static void Main(string[] args)
+        {
+            var equipment = new EquipmentBuilder()
+                                 .Industry("Mining")
+                                 .EquipmentType("Excavator")
+                                 .EquipmentMake("JCB")
+                                 .EquipmentModel("3Tx") 
+                                 .Build();
+
+            Console.WriteLine
+                              (equipment.Industry + " " + equipment.Type + " " + equipment.Make + " " + equipment.Model);
+        }
+
         public abstract class GenericFunctionalBuilder<TSubject, TSelf>
         where TSubject : new()
         where TSelf : GenericFunctionalBuilder<TSubject, TSelf>
