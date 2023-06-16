@@ -113,27 +113,27 @@ namespace Design_Patterns.Builder
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var productBuilder = new ProductBuilder();
-            Product product = productBuilder
-                .SetPrice(99.9)
-                .SetAvailability(true)
-                .SetName("Sports Shoes")
-                .SetDescription("Durable and comfortable athletic shoes for men.")
-                .Build();
+        //public static void Main(string[] args)
+        //{
+        //    var productBuilder = new ProductBuilder();
+        //    Product product = productBuilder
+        //        .SetPrice(99.9)
+        //        .SetAvailability(true)
+        //        .SetName("Sports Shoes")
+        //        .SetDescription("Durable and comfortable athletic shoes for men.")
+        //        .Build();
 
-            var categoryBuilder = new CategoryBuilder();
-            var category = categoryBuilder
-                .AddProducts(product)
-                .SetDescription (product.Description)
-                .SetName (product.Name)
-                .Build();
+        //    var categoryBuilder = new CategoryBuilder();
+        //    var category = categoryBuilder
+        //        .AddProducts(product)
+        //        .SetDescription (product.Description)
+        //        .SetName (product.Name)
+        //        .Build();
 
 
-            product.Display();
-            category.Display();
-        }
+        //    product.Display();
+        //    category.Display();
+        //}
     }
 
 
