@@ -24,7 +24,10 @@ namespace Design_Patterns.Builder
 
             public override string ToString()
             {
-                return $"{nameof(Title)}: {Title}, {nameof(Content)}: {Content}, {nameof(CreatedDate)}: {CreatedDate}, {nameof(Author)}: {Author}";
+                return $"{nameof(Title)}: {Title}, " +
+                    $"{nameof(Content)}: {Content}, " +
+                    $"{nameof(CreatedDate)}: {CreatedDate}," +
+                    $"{nameof(Author)}: {Author}";
             }
         }
 
