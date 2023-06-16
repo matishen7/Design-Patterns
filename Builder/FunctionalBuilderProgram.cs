@@ -7,7 +7,7 @@ using static Design_Patterns.Builder.DocumentBuilderProgram;
 
 namespace Design_Patterns.Builder
 {
-    internal class FunctionalBuilderProgram
+    public class FunctionalBuilderProgram
     {
         public static void Main(string[] args)
         {
@@ -15,11 +15,12 @@ namespace Design_Patterns.Builder
                                  .Industry("Mining")
                                  .EquipmentType("Excavator")
                                  .EquipmentMake("JCB")
-                                 .EquipmentModel("3Tx") 
+                                 .EquipmentModel("3Tx")
+                                 .PurchaseYear("1998")
                                  .Build();
 
             Console.WriteLine
-                              (equipment.Industry + " " + equipment.Type + " " + equipment.Make + " " + equipment.Model);
+                              (equipment.Industry + " " + equipment.Type + " " + equipment.Make + " " + equipment.Model + " " + equipment.PurchaseYear);
         }
 
         public abstract class GenericFunctionalBuilder<TSubject, TSelf>
@@ -73,24 +74,27 @@ namespace Design_Patterns.Builder
 
         }
 
-        class Equipment
+        public class Equipment
         {
             private string type = string.Empty;
             private string make = string.Empty;
             private string model = string.Empty;
             private string industry = string.Empty;
+            private string purchaseYear = string.Empty;
 
 
             public string Type { get => type; set => type = value; }
             public string Make { get => make; set => make = value; }
             public string Model { get => model; set => model = value; }
             public string Industry { get => industry; set => industry = value; }
+            public string PurchaseYear { get => purchaseYear; set => purchaseYear = value; }
         }
+
 
         /// <summary>
         /// One can't modify or inherit but one can extend anytime.
         /// </summary>
-        sealed class EquipmentBuilder : GenericFunctionalBuilder<Equipment, EquipmentBuilder>
+        public sealed class EquipmentBuilder : GenericFunctionalBuilder<Equipment, EquipmentBuilder>
         {
             /// <summary>
             /// Industry 
