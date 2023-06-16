@@ -59,6 +59,20 @@ namespace Design_Patterns.Builder
 
         }
 
+        class Equipment
+        {
+            private string type = string.Empty;
+            private string make = string.Empty;
+            private string model = string.Empty;
+            private string industry = string.Empty;
+
+
+            public string Type { get => type; set => type = value; }
+            public string Make { get => make; set => make = value; }
+            public string Model { get => model; set => model = value; }
+            public string Industry { get => industry; set => industry = value; }
+        }
+
         /// <summary>
         /// One can't modify or inherit but one can extend anytime.
         /// </summary>
