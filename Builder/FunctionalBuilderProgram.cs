@@ -9,19 +9,19 @@ namespace Design_Patterns.Builder
 {
     public class FunctionalBuilderProgram
     {
-        public static void Main(string[] args)
-        {
-            var equipment = new EquipmentBuilder()
-                                 .Industry("Mining")
-                                 .EquipmentType("Excavator")
-                                 .EquipmentMake("JCB")
-                                 .EquipmentModel("3Tx")
-                                 .PurchaseYear("1998")
-                                 .Build();
+        //public static void Main(string[] args)
+        //{
+        //    var equipment = new EquipmentBuilder()
+        //                         .Industry("Mining")
+        //                         .EquipmentType("Excavator")
+        //                         .EquipmentMake("JCB")
+        //                         .EquipmentModel("3Tx")
+        //                         .PurchaseYear("1998")
+        //                         .Build();
 
-            Console.WriteLine
-                              (equipment.Industry + " " + equipment.Type + " " + equipment.Make + " " + equipment.Model + " " + equipment.PurchaseYear);
-        }
+        //    Console.WriteLine
+        //                      (equipment.Industry + " " + equipment.Type + " " + equipment.Make + " " + equipment.Model + " " + equipment.PurchaseYear);
+        //}
 
         public abstract class GenericFunctionalBuilder<TSubject, TSelf>
         where TSubject : new()
