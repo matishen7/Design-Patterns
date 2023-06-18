@@ -7,32 +7,35 @@ using static Design_Patterns.Builder.FunctionalBuilderProgram;
 
 namespace Design_Patterns.Builder
 {
-    internal class EmployeeBuilderDemo
+    public class EmployeeBuilderDemo
     {
-        class Employee
+        public class Employee
         {
             private string firstName = string.Empty;
             private string lastName = string.Empty;
             private int age = 0;
             private string department = string.Empty;
+            private int salary = 0;
 
             public string FirstName { get => firstName; set => firstName = value; }
             public string LastName { get => lastName; set => lastName = value; }
             public int Age { get => age; set => age = value; }
             public string Department { get => department; set => department = value; }
+            public int Salary { get => salary; set => salary = value; }
 
             public void Display()
             {
                 Console.WriteLine($"First name : {firstName}\n" +
                     $"Last name : {lastName}\n" +
                     $"Age : {age} \n" +
-                    $"Department : {department} \n"
+                    $"Department : {department} \n" +
+                    $"Salary : {salary} \n"
                     );
             }
 
         }
 
-        class EmployeeBuilder : GenericFunctionalBuilder<Employee, EmployeeBuilder>
+        public class EmployeeBuilder : GenericFunctionalBuilder<Employee, EmployeeBuilder>
         {
             public EmployeeBuilder FirstName(string firstName)
             {
@@ -55,6 +58,8 @@ namespace Design_Patterns.Builder
             }
         }
 
+        
+
         public static void Main(string[] args)
         {
             var employee = new EmployeeBuilder()
@@ -62,6 +67,7 @@ namespace Design_Patterns.Builder
                                  .LastName("Smith")
                                  .Age(33)
                                  .Department("Engineering")
+                                 .Salary(100000)
                                  .Build();
             employee.Display();
         }
