@@ -21,6 +21,15 @@ namespace Design_Patterns.Builder
             public int Age { get => age; set => age = value; }
             public string Department { get => department; set => department = value; }
 
+            public void Display()
+            {
+                Console.WriteLine($"First name : {firstName}\n" +
+                    $"Last name : {lastName}\n" +
+                    $"Age : {age} \n" +
+                    $"Department : {department} \n"
+                    );
+            }
+
         }
 
         class EmployeeBuilder : GenericFunctionalBuilder<Employee, EmployeeBuilder>
@@ -34,6 +43,27 @@ namespace Design_Patterns.Builder
             {
                 return Do(e => e.LastName = lastName);
             }
+
+            public EmployeeBuilder Age(int age)
+            {
+                return Do(e => e.Age = age);
+            }
+
+            public EmployeeBuilder Department(string department)
+            {
+                return Do(e => e.Department = department);
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            var employee = new EmployeeBuilder()
+                                 .FirstName("John")
+                                 .LastName("Smith")
+                                 .Age(33)
+                                 .Department("Engineering")
+                                 .Build();
+            employee.Display();
         }
     }
 }

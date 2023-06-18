@@ -55,14 +55,14 @@ namespace Design_Patterns.Builder
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var cb = new CodeBuilder("Person")
-                .AddField("Name", "string")
-                .AddField("Age", "int")
-                .Build();
-            Console.WriteLine(cb);
-        }
+        //public static void Main(string[] args)
+        //{
+        //    var cb = new CodeBuilder("Person")
+        //        .AddField("Name", "string")
+        //        .AddField("Age", "int")
+        //        .Build();
+        //    Console.WriteLine(cb);
+        //}
 
     }
 }
