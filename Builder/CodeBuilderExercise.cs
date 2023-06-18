@@ -15,14 +15,12 @@ namespace Design_Patterns.Builder
         {
             public Code() { }
             public string ClassName { get; set; }
-            public string PropertyName { get; set; }
-            public string DataType { get; set; }
+            public Dictionary<string, string> Properties = new Dictionary<string, string>();
 
             public override string ToString()
             {
-                return $"{nameof(ClassName)}: {ClassName}, " +
-                    $"{nameof(PropertyName)}: {PropertyName}, " +
-                $"{nameof(DataType)}: {DataType}";
+                var display = new StringBuilder();
+                return display.ToString();
             }
         }
 
@@ -37,8 +35,7 @@ namespace Design_Patterns.Builder
 
             public CodeBuilder AddField(string propertyName, string dataType)
             {
-                code.PropertyName = propertyName;
-                code.DataType = dataType;
+                code.Properties.Add(dataType, propertyName);
                 return this;
             }
 
