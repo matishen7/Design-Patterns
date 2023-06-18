@@ -9,9 +9,9 @@ using static Design_Patterns.Builder.FunctionalBuilderProgram;
 
 namespace Design_Patterns.Builder
 {
-    internal class CodeBuilderExercise
+    public class CodeBuilderExercise
     {
-        class Code
+        public class Code
         {
             public Code() { }
             public string ClassName { get; set; }
@@ -20,11 +20,21 @@ namespace Design_Patterns.Builder
             public override string ToString()
             {
                 var display = new StringBuilder();
+
+                display.Append("public class " + ClassName + "\n");
+                display.Append("{\n");
+                foreach (var key in Properties.Keys)
+                {
+                    var value = Properties[key];
+                    display.Append($"  public {key} {value};\n");
+                }
+                display.Append("}");
+
                 return display.ToString();
             }
         }
 
-        class CodeBuilder
+        public class CodeBuilder
         {
             protected Code code;
             public CodeBuilder(string className)
@@ -51,7 +61,7 @@ namespace Design_Patterns.Builder
                 .AddField("Name", "string")
                 .AddField("Age", "int")
                 .Build();
-            Console.WriteLine(cb.ToString());
+            Console.WriteLine(cb);
         }
 
     }
