@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="PerformanceBenchmark" Version="1.0.3" />
+    <PackageReference Include="PerformanceBenchmark" Version="1.0.4" />
   </ItemGroup>
 
 </Project>
