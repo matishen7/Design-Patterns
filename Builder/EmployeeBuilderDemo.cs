@@ -57,19 +57,5 @@ namespace Design_Patterns.Builder
                 return Do(e => e.Department = department);
             }
         }
-
-        
-
-        public static void Main(string[] args)
-        {
-            var employee = new EmployeeBuilder()
-                                 .FirstName("John")
-                                 .LastName("Smith")
-                                 .Age(33)
-                                 .Department("Engineering")
-                                 .Salary(100000)
-                                 .Build();
-            employee.Display();
-        }
     }
 }
