@@ -23,9 +23,6 @@ namespace Design_Patterns.Factories
             {
                 return $"{nameof(x)} = {x}, {nameof(y)} = {y}";
             }
-
-            public static Point CreateNewCartesian(double x, double y) { return new Point(x, y); }
-            public static Point CreateNewPolar(double rho, double theta) { return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta)); }
         }
 
         //public static void Main(string[] args)
