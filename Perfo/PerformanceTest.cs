@@ -9,19 +9,19 @@ namespace Design_Patterns.Perfo
 {
     public class PerformanceTest
     {
-        public static void Main(string[] args)
-        {
-            var q = new Queue<int>();
-            int iterations = Int32.MaxValue / 2;
-            int i = int.MinValue;
+        //public static void Main(string[] args)
+        //{
+        //    var q = new Queue<int>();
+        //    int iterations = Int32.MaxValue / 2;
+        //    int i = int.MinValue;
 
-            i = int.MinValue;
-            Performance.Profile("original queue push", iterations, () =>
-            {
-                q.Enqueue(i);
-                q.Dequeue();
-            });
-        }
+        //    i = int.MinValue;
+        //    Performance.Profile("original queue push", iterations, () =>
+        //    {
+        //        q.Enqueue(i);
+        //        q.Dequeue();
+        //    });
+        //}
 
     }
 }
