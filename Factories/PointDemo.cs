@@ -28,13 +28,13 @@ namespace Design_Patterns.Factories
             public static Point CreateNewPolar(double rho, double theta) { return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta)); }
         }
 
-        public static void Main(string[] args)
-        {
-            var p = Point.CreateNewCartesian(1.0, 1.0);
-            var p2 = Point.CreateNewPolar(1.0, 1.0);
+        //public static void Main(string[] args)
+        //{
+        //    var p = Point.CreateNewCartesian(1.0, 1.0);
+        //    var p2 = Point.CreateNewPolar(1.0, 1.0);
 
-            Console.WriteLine(p.ToString());
-            Console.WriteLine(p2.ToString());
-        }
+        //    Console.WriteLine(p.ToString());
+        //    Console.WriteLine(p2.ToString());
+        //}
     }
 }
