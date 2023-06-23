@@ -24,8 +24,8 @@ namespace Design_Patterns.Factories
                 return $"{nameof(x)} = {x}, {nameof(y)} = {y}";
             }
 
-            //public static Point Origin => new Point(0.0, 0.0);
-            public static Point Origin = new Point(0.0, 0.0); // better
+            public static Point Origin => new Point(0.0, 0.0);
+            //public static Point Origin = new Point(0.0, 0.0); // better
 
             public static class Factory
             {
@@ -39,9 +39,10 @@ namespace Design_Patterns.Factories
         {
             var p = Point.Factory.CreateNewCartesian(1.0, 1.0);
             var p2 = Point.Factory.CreateNewPolar(1.0, 1.0);
-
+            var origin = Point.Origin;
             Console.WriteLine(p.ToString());
             Console.WriteLine(p2.ToString());
+            Console.WriteLine(origin);
         }
     }
 }
