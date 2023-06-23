@@ -45,13 +45,13 @@ namespace Design_Patterns.Factories
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var foo = Foo.CreateAsync();
-            Console.WriteLine(foo);
-            var dp = DataProcessor.CreateDataProcessor();
-            Console.WriteLine(dp);
-        }
+        //public static void Main(string[] args)
+        //{
+        //    var foo = Foo.CreateAsync();
+        //    Console.WriteLine(foo);
+        //    var dp = DataProcessor.CreateDataProcessor();
+        //    Console.WriteLine(dp);
+        //}
 
 
     }
