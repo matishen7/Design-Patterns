@@ -35,14 +35,14 @@ namespace Design_Patterns.Factories
             }
         }
 
-        public static void Main(string[] args)
-        {
-            var p = Point.Factory.CreateNewCartesian(1.0, 1.0);
-            var p2 = Point.Factory.CreateNewPolar(1.0, 1.0);
-            var origin = Point.Origin;
-            Console.WriteLine(p.ToString());
-            Console.WriteLine(p2.ToString());
-            Console.WriteLine(origin);
-        }
+        //public static void Main(string[] args)
+        //{
+        //    var p = Point.Factory.CreateNewCartesian(1.0, 1.0);
+        //    var p2 = Point.Factory.CreateNewPolar(1.0, 1.0);
+        //    var origin = Point.Origin;
+        //    Console.WriteLine(p.ToString());
+        //    Console.WriteLine(p2.ToString());
+        //    Console.WriteLine(origin);
+        //}
     }
 }
