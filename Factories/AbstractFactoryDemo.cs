@@ -66,7 +66,7 @@ namespace Design_Patterns.Factories
                 foreach (AvailableDrinks drink in Enum.GetValues(typeof(AvailableDrinks)))
                 {
                     var factory = (IHotDrinkFactory)Activator.CreateInstance(
-          Type.GetType("Design_Patterns.Factories.AbstractFactoryDemo." + Enum.GetName(typeof(AvailableDrinks), drink) + "Factory"));
+          Type.GetType("Design_Patterns.Factories.AbstractFactoryDemo+" + Enum.GetName(typeof(AvailableDrinks), drink) + "Factory"));
                     factories.Add(drink, factory);
                 }
             }
@@ -80,6 +80,7 @@ namespace Design_Patterns.Factories
 
         static void Main(string[] args)
         {
+            Console.WriteLine(typeof(TeaFactory));
             var machine = new HotDrinkMachine();
             var tea = machine.MakeDrink(HotDrinkMachine.AvailableDrinks.Tea, 100);
             Console.WriteLine( tea );
