@@ -21,7 +21,7 @@ namespace Design_Patterns.Factories
             }
         }
 
-        internal class Coffee: IHotDrink
+        internal class Coffee : IHotDrink
         {
             public void Consume()
             {
@@ -50,6 +50,39 @@ namespace Design_Patterns.Factories
                 Console.WriteLine($"Grind beans, boil water, pour water, add milk and enjoy!");
                 return new Coffee();
             }
+        }
+
+        internal class HotDrinkMachine
+        {
+            public enum AvailableDrinks
+            {
+                Tea, Coffee
+            }
+
+            private Dictionary<AvailableDrinks, IHotDrinkFactory> factories = new Dictionary<AvailableDrinks, IHotDrinkFactory>();
+
+            public HotDrinkMachine()
+            {
+                foreach (AvailableDrinks drink in Enum.GetValues(typeof(AvailableDrinks)))
+                {
+                    var factory = (IHotDrinkFactory)Activator.CreateInstance(
+          Type.GetType("Design_Patterns.Factories.AbstractFactoryDemo." + Enum.GetName(typeof(AvailableDrinks), drink) + "Factory"));
+                    factories.Add(drink, factory);
+                }
+            }
+
+            public IHotDrink MakeDrink(AvailableDrinks drink,int amount)
+            {
+                var factory = factories[drink];
+                return factory.Prepare(amount);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            var machine = new HotDrinkMachine();
+            var tea = machine.MakeDrink(HotDrinkMachine.AvailableDrinks.Tea, 100);
+            Console.WriteLine( tea );
         }
 
     }
