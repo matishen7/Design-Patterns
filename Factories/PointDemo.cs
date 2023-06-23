@@ -13,7 +13,7 @@ namespace Design_Patterns.Factories
             private double x { get; set; }
             private double y { get; set; }
 
-            public Point(double x, double y)
+            private Point(double x, double y)
             {
                 this.x = x;
                 this.y = y;
@@ -23,15 +23,25 @@ namespace Design_Patterns.Factories
             {
                 return $"{nameof(x)} = {x}, {nameof(y)} = {y}";
             }
+
+            //public static Point Origin => new Point(0.0, 0.0);
+            public static Point Origin = new Point(0.0, 0.0); // better
+
+            public static class Factory
+            {
+
+                public static Point CreateNewCartesian(double x, double y) { return new Point(x, y); }
+                public static Point CreateNewPolar(double rho, double theta) { return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta)); }
+            }
         }
 
-        //public static void Main(string[] args)
-        //{
-        //    var p = Point.CreateNewCartesian(1.0, 1.0);
-        //    var p2 = Point.CreateNewPolar(1.0, 1.0);
+        public static void Main(string[] args)
+        {
+            var p = Point.Factory.CreateNewCartesian(1.0, 1.0);
+            var p2 = Point.Factory.CreateNewPolar(1.0, 1.0);
 
-        //    Console.WriteLine(p.ToString());
-        //    Console.WriteLine(p2.ToString());
-        //}
+            Console.WriteLine(p.ToString());
+            Console.WriteLine(p2.ToString());
+        }
     }
 }
