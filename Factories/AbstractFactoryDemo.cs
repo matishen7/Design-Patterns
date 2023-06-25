@@ -78,13 +78,13 @@ namespace Design_Patterns.Factories
             }
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(typeof(TeaFactory));
-            var machine = new HotDrinkMachine();
-            var tea = machine.MakeDrink(HotDrinkMachine.AvailableDrinks.Tea, 100);
-            Console.WriteLine( tea );
-        }
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine(typeof(TeaFactory));
+        //    var machine = new HotDrinkMachine();
+        //    var tea = machine.MakeDrink(HotDrinkMachine.AvailableDrinks.Tea, 100);
+        //    Console.WriteLine( tea );
+        //}
 
     }
 }
