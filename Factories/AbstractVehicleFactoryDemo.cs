@@ -83,10 +83,10 @@ namespace Design_Patterns.Factories
             }
         }
 
-        static void Main(string[] args)
-        {
-            var vehicleClient = new VehicleClient(new MotorcycleFactory());
-            vehicleClient.DriveVehicle();
-        }
+        //static void Main(string[] args)
+        //{
+        //    var vehicleClient = new VehicleClient(new MotorcycleFactory());
+        //    vehicleClient.DriveVehicle();
+        //}
     }
 }
