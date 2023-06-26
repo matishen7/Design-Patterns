@@ -22,7 +22,7 @@ namespace Design_Patterns.Factories
                 Name = name;
             }
 
-            public class PersonFactory : IPersonFactory
+            public class PersonFactory
             {
                 private int Id { get; set; } = 0;
 
@@ -49,13 +49,5 @@ namespace Design_Patterns.Factories
 
     public interface IPerson
     {
-    }
-
-    public interface IPersonFactory
-    {
-        public Person CreatePerson(string y)
-        {
-            return new Person(Id++, y);
-        }
     }
 }
