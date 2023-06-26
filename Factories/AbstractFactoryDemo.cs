@@ -38,7 +38,7 @@ namespace Design_Patterns.Factories
         {
             public IHotDrink Prepare(int amount)
             {
-                Console.WriteLine($"Put tea bag, boil water, pour water and enjoy!");
+                Console.WriteLine($"Put tea bag, boil water, pour {amount} ml of water and enjoy!");
                 return new Tea();
             }
         }
@@ -47,7 +47,7 @@ namespace Design_Patterns.Factories
         {
             public IHotDrink Prepare(int amount)
             {
-                Console.WriteLine($"Grind beans, boil water, pour water, add milk and enjoy!");
+                Console.WriteLine($"Grind beans, boil water, pour {amount} ml of water, add milk and enjoy!");
                 return new Coffee();
             }
         }
@@ -88,6 +88,27 @@ namespace Design_Patterns.Factories
                     var tuple = factories[i];
                     Console.WriteLine($"{i}: {tuple.Item1}");
                 }
+
+                while (true)
+                {
+                    string s;
+                    if ((s = Console.ReadLine()) != null
+                        && int.TryParse(s, out int i)
+                            && i >= 0
+                            && i < factories.Count)
+                    {
+                        Console.WriteLine("Specify amount :");
+                        s = Console.ReadLine();
+                        if (s != null
+                            && int.TryParse(s , out int amount)
+                            && amount > 0
+                            )
+                        {
+                            return factories[i].Item2.Prepare(amount);
+                        }
+                    }
+                }
+
                 //var factory = factories[drink];
                 //return factory.Prepare(amount);
                 return null;
@@ -99,6 +120,7 @@ namespace Design_Patterns.Factories
             Console.WriteLine(typeof(TeaFactory));
             var machine = new HotDrinkMachine();
             var tea = machine.MakeDrink();
+            tea.Consume();
             Console.WriteLine(tea);
         }
 
