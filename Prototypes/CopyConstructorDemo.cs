@@ -11,7 +11,12 @@ namespace Design_Patterns.Prototypes
 {
     internal class CopyConstructorDemo
     {
-        class Person
+        interface IPrototype<T>
+        {
+            public T DeepCopy();
+        }
+
+        class Person : IPrototype<Person>
         {
             public string Names { get; set; }
             public Address Address { get; set; }
@@ -19,6 +24,12 @@ namespace Design_Patterns.Prototypes
             public Person()
             {
 
+            }
+
+            public Person(string names, Address address)
+            {
+                Names = names;
+                Address = address;
             }
 
             public Person(Person other)
@@ -31,16 +42,32 @@ namespace Design_Patterns.Prototypes
             {
                 return $"{nameof(Names)}: {Names}, {nameof(Address)}: {Address}";
             }
+
+            public Person DeepCopy()
+            {
+                return new Person(Names, Address.DeepCopy());
+            }
         }
 
-        public class Address
+        class Address : IPrototype<Address>
         {
+            public Address DeepCopy()
+            {
+                return new Address(StreetName, Number);
+            }
+        
             public string StreetName { get; set; }
             public int Number;
 
             public Address()
             {
+                    
+            }
 
+            public Address(string streetName,int number)
+            {
+                StreetName = streetName;
+                Number = number;
             }
 
             public Address(Address other)
@@ -60,8 +87,9 @@ namespace Design_Patterns.Prototypes
         {
             var john = new Person() { Names = "John" , Address = new Address() { StreetName = "London street" , Number = 123 } };
             var jane = new Person(john);
-            Console.WriteLine(jane.ToString());
+            jane.Address.Number = 321;
             Console.WriteLine(john.ToString());
+            Console.WriteLine(jane.ToString());
         }
     }
 }
