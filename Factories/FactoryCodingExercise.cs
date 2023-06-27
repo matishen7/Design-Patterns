@@ -37,14 +37,14 @@ namespace Design_Patterns.Factories
 
         
 
-        static void Main(string[] args)
-        {
-            var john = Person.Factory.CreatePerson("John");
-            var alex = Person.Factory.CreatePerson("Alex");
-            Console.WriteLine(john.Id);
-            Console.WriteLine(alex.Id);
+        //static void Main(string[] args)
+        //{
+        //    var john = Person.Factory.CreatePerson("John");
+        //    var alex = Person.Factory.CreatePerson("Alex");
+        //    Console.WriteLine(john.Id);
+        //    Console.WriteLine(alex.Id);
 
-        }
+        //}
     }
 
     public interface IPerson
