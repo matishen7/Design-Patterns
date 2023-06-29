@@ -83,13 +83,13 @@ namespace Design_Patterns.Prototypes
         }
 
 
-        static void Main(string[] args)
-        {
-            var john = new Person() { Names = "John" , Address = new Address() { StreetName = "London street" , Number = 123 } };
-            var jane = new Person(john);
-            jane.Address.Number = 321;
-            Console.WriteLine(john.ToString());
-            Console.WriteLine(jane.ToString());
-        }
+        //static void Main(string[] args)
+        //{
+        //    var john = new Person() { Names = "John" , Address = new Address() { StreetName = "London street" , Number = 123 } };
+        //    var jane = new Person(john);
+        //    jane.Address.Number = 321;
+        //    Console.WriteLine(john.ToString());
+        //    Console.WriteLine(jane.ToString());
+        //}
     }
 }
