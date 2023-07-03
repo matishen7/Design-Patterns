@@ -60,17 +60,17 @@ public class Address
 
 public class Program
 {
-    public static void Main()
-    {
-        var johnAddress = new Address("123 Main St", "New York");
-        var john = new Employee("John Doe", johnAddress);
+    //public static void Main()
+    //{
+    //    var johnAddress = new Address("123 Main St", "New York");
+    //    var john = new Employee("John Doe", johnAddress);
 
-        // Perform a deep copy of John
-        var jane = new Employee(john);
-        jane.Name = "Jane Smith";
-        jane.Address.City = "Los Angeles";
+    //    // Perform a deep copy of John
+    //    var jane = new Employee(john);
+    //    jane.Name = "Jane Smith";
+    //    jane.Address.City = "Los Angeles";
 
-        Console.WriteLine(john.ToString());
-        Console.WriteLine(jane.ToString());
-    }
+    //    Console.WriteLine(john.ToString());
+    //    Console.WriteLine(jane.ToString());
+    //}
 }
