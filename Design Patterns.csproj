@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="morelinq" Version="3.4.2" />
     <PackageReference Include="PerformanceBenchmark" Version="1.0.5" />
   </ItemGroup>
 
