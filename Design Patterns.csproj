@@ -13,4 +13,10 @@
     <PackageReference Include="PerformanceBenchmark" Version="1.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="capitals.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

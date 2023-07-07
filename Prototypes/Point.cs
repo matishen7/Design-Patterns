@@ -26,14 +26,14 @@ namespace Design_Patterns.Prototypes
             return new Point(X,Y);
         }
 
-        public static void Main()
-        {
-            var point1 = new Point(0, 1);
-            var point2 = new Point(3, 1);
+        //public static void Main()
+        //{
+        //    var point1 = new Point(0, 1);
+        //    var point2 = new Point(3, 1);
 
-            var line1 = new Line(point1, point2);
-            var line2 = line1.DeepCopy();
-        }
+        //    var line1 = new Line(point1, point2);
+        //    var line2 = line1.DeepCopy();
+        //}
     }
     public class Line : IPrototype<Line>
     {
