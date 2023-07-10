@@ -31,17 +31,17 @@ namespace Design_Patterns.Singleton
             }
         }
 
-        public class Demo
-        {
-            static void Main(string[] args)
-            {
-                var ceo = new ChiefExecutiveOfficer();
-                ceo.Name = "Adam Smith";
-                ceo.Age = 55;
+        //public class Demo
+        //{
+        //    static void Main(string[] args)
+        //    {
+        //        var ceo = new ChiefExecutiveOfficer();
+        //        ceo.Name = "Adam Smith";
+        //        ceo.Age = 55;
 
-                var ceo2 = new ChiefExecutiveOfficer();
-                Console.WriteLine(ceo2);
-            }
-        }
+        //        var ceo2 = new ChiefExecutiveOfficer();
+        //        Console.WriteLine(ceo2);
+        //    }
+        //}
     }
 }
