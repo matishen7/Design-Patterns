@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MoreLinq;
+﻿using MoreLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns.Singleton
 {
-    internal class SingletonDatabaseDemo
+    public class SingletonDatabaseDemo
     {
         public interface IDatabase
         {
@@ -49,31 +48,20 @@ namespace Design_Patterns.Singleton
                     return result;
                 }
             }
-        }
-
-      
             public static void Main()
-        {
-            var db = SingletonDatabase.Instance;
-
-            // works just fine while you're working with a real database.
-            var city = "Tokyo";
-            Console.WriteLine($"{city} has population {db.GetPopulation(city)}");
-
-            // now some tests
-        }
-
-        [TestClass]
-        public class SingletonTests
-        {
-            [TestMethod]
-            public void IsSingletonTest()
             {
                 var db = SingletonDatabase.Instance;
-                var db2 = SingletonDatabase.Instance;
-                Assert.AreEqual(db, db2);
-                Assert.AreEqual(SingletonDatabase.Count, 1);
+
+                // works just fine while you're working with a real database.
+                var city = "Tokyo";
+                Console.WriteLine($"{city} has population {db.GetPopulation(city)}");
+
+                // now some tests
             }
+
         }
+    
+
+
     }
 }
