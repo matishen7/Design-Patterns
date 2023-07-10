@@ -1,4 +1,5 @@
-﻿using MoreLinq;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MoreLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace Design_Patterns.Singleton
         {
             private static Lazy<SingletonDatabase> instance = new Lazy<SingletonDatabase>(() => new SingletonDatabase());
             public static SingletonDatabase Instance = instance.Value;
-
+            private static int instanceCount;
+            public static int Count => instanceCount;
             private Dictionary<string, int> capitals;
             private SingletonDatabase()
             {
+                instanceCount++;
                 Console.WriteLine("Initialization SignletonDatabase..");
                 capitals = File.ReadAllLines(
                             Path.Combine(
@@ -35,9 +38,21 @@ namespace Design_Patterns.Singleton
             {
                 return capitals[name];
             }
+
+            public class SingletonRecordFinder
+            {
+                public int TotalPopulation(IEnumerable<string> names)
+                {
+                    int result = 0;
+                    foreach (var name in names)
+                        result += SingletonDatabase.Instance.GetPopulation(name);
+                    return result;
+                }
+            }
         }
 
-        static void Main()
+      
+            public static void Main()
         {
             var db = SingletonDatabase.Instance;
 
@@ -46,6 +61,19 @@ namespace Design_Patterns.Singleton
             Console.WriteLine($"{city} has population {db.GetPopulation(city)}");
 
             // now some tests
+        }
+
+        [TestClass]
+        public class SingletonTests
+        {
+            [TestMethod]
+            public void IsSingletonTest()
+            {
+                var db = SingletonDatabase.Instance;
+                var db2 = SingletonDatabase.Instance;
+                Assert.AreEqual(db, db2);
+                Assert.AreEqual(SingletonDatabase.Count, 1);
+            }
         }
     }
 }
