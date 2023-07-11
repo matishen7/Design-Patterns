@@ -24,23 +24,23 @@ namespace Design_Patterns.Singleton
             public static PerThreadSingleton Instance => threadInstance.Value;
         }
 
-        public class Demo
-        {
-            public static void Main(string[] args)
-            {
-                var t1 = Task.Factory.StartNew(() =>
-                {
-                    Console.WriteLine($"t1: " + PerThreadSingleton.Instance.Id);
-                });
-                var t2 = Task.Factory.StartNew(() =>
-                {
-                    Console.WriteLine($"t2: " + PerThreadSingleton.Instance.Id);
-                    Console.WriteLine($"t2 again: " + PerThreadSingleton.Instance.Id);
-                });
-                Task.WaitAll(t1, t2);
-            }
+        //public class Demo
+        //{
+        //    public static void Main(string[] args)
+        //    {
+        //        var t1 = Task.Factory.StartNew(() =>
+        //        {
+        //            Console.WriteLine($"t1: " + PerThreadSingleton.Instance.Id);
+        //        });
+        //        var t2 = Task.Factory.StartNew(() =>
+        //        {
+        //            Console.WriteLine($"t2: " + PerThreadSingleton.Instance.Id);
+        //            Console.WriteLine($"t2 again: " + PerThreadSingleton.Instance.Id);
+        //        });
+        //        Task.WaitAll(t1, t2);
+        //    }
 
 
-        }
+        //}
     }
 }
