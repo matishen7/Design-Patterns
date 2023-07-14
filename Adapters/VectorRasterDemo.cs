@@ -164,11 +164,11 @@ namespace Design_Patterns.Adapters
                 Console.Write(".");
             }
 
-            static void Main(string[] args)
-            {
-                Draw();
-                Draw();
-            }
+            //static void Main(string[] args)
+            //{
+            //    Draw();
+            //    Draw();
+            //}
 
             private static void Draw()
             {
